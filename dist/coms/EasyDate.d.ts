@@ -3,15 +3,11 @@ export interface EasyDateProps {
     date: Date | number;
     timeZone?: number;
 }
-export declare class EasyDate extends React.Component<EasyDateProps> {
-    render(): string;
-}
+export declare function EasyDate(props: EasyDateProps): JSX.Element;
 interface EasyTimeProps extends EasyDateProps {
     always?: boolean;
 }
-export declare class EasyTime extends React.Component<EasyTimeProps> {
-    render(): string;
-}
+export declare function EasyTime(props: EasyTimeProps): JSX.Element;
 interface DateProps {
     date: Date;
     hideTime?: boolean;

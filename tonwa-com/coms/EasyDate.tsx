@@ -112,20 +112,16 @@ function renderDate(vDate: Date | number, withTime: boolean, always: boolean = f
 }
 
 
-export class EasyDate extends React.Component<EasyDateProps> {
-    render() {
-        return renderDate(this.props.date, false);
-    }
+export function EasyDate(props: EasyDateProps) {
+    return <>{renderDate(props.date, false)}</>;
 }
 
 interface EasyTimeProps extends EasyDateProps {
     always?: boolean;
 }
-export class EasyTime extends React.Component<EasyTimeProps> {
-    render() {
-        let { date, always } = this.props;
-        return renderDate(date, true, always);
-    }
+export function EasyTime(props: EasyTimeProps) {
+    let { date, always } = props;
+    return <>{renderDate(date, true, always)}</>;
 }
 
 interface DateProps {
