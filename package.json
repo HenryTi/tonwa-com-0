@@ -1,12 +1,13 @@
 {
     "name": "tonwa-com",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "ui components",
     "private": false,
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
-        "/dist"
+        "/dist",
+        "tonwa-com"
     ],
     "repository": {
         "type": "git",
