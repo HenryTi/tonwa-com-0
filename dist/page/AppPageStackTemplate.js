@@ -15,7 +15,7 @@ exports.appPageStackTemplate = void 0;
 var jsx_runtime_1 = require("react/jsx-runtime");
 var Error_1 = require("./Error");
 var PageTemplate_1 = require("./PageTemplate");
-require("./tonwa-page.css");
+require("../css/tonwa-page.css");
 var BackTemplate_1 = require("./BackTemplate");
 var defaultContentClassName = ' bg-white ';
 function Header(props) {
