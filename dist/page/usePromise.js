@@ -41,13 +41,12 @@ var react_1 = require("react");
 function usePromise(promiseFunc) {
     var _this = this;
     var _a = (0, react_1.useState)(), value = _a[0], setValue = _a[1];
-    var callback = (0, react_1.useCallback)(promiseFunc, []);
     (0, react_1.useEffect)(function () {
         var func = function () { return __awaiter(_this, void 0, void 0, function () {
             var r;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, callback()];
+                    case 0: return [4 /*yield*/, promiseFunc()];
                     case 1:
                         r = _a.sent();
                         setValue(r);
@@ -56,7 +55,7 @@ function usePromise(promiseFunc) {
             });
         }); };
         func();
-    }, [callback]);
+    }, [promiseFunc]);
     return value;
 }
 exports.usePromise = usePromise;

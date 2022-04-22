@@ -15,7 +15,7 @@ function useT() {
                 return ret;
         }
         return str;
-    }, []);
+    }, [t]);
     return callback;
 }
 exports.useT = useT;

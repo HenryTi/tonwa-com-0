@@ -7,6 +7,6 @@ export function useT(...t: ((str: string) => any)[]): ((string: string) => any) 
             if (ret) return ret;
         }
         return str;
-    }, []);
+    }, [t]);
     return callback;
 }
