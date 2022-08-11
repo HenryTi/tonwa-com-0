@@ -41,7 +41,7 @@ export function CharInputBase({ name, className, readOnly, placeholder, maxLengt
     let bandContainer = useBandContainer();
     let { props, fields, fieldStates } = bandContainer;
     let fieldState = useSnapshot(fieldStates[name]);
-    readOnly = (fieldState?.readOnly) ?? readOnly ?? props.readOnly ?? false;
+    readOnly = readOnly ?? (fieldState?.readOnly) ?? props.readOnly ?? false;
     useEffect(() => {
         if (!band) return;
         let { fields: bandFields } = band;

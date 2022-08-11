@@ -120,22 +120,24 @@ function buildDetailChildren(children) {
     function each(cs) {
         var ret = [];
         react_1.default.Children.forEach(cs, function (c) {
+            if (c.type === react_1.default.Fragment) {
+                debugger;
+            }
             if (react_1.default.isValidElement(c) === false) {
                 ret.push(c);
                 return;
             }
             var e = c;
             var props = e.props;
-            var name;
             if (props) {
-                name = props.name;
+                var key = e.key;
+                var name_1 = props.name, options = props.options;
                 if (!(props.readOnly === true))
                     readOnly = false;
-            }
-            if (name) {
-                var key = e.key;
-                ret.push((0, jsx_runtime_1.jsx)(Value, { name: name }, key));
-                return;
+                if (name_1) {
+                    ret.push((0, jsx_runtime_1.jsx)(Value, { name: name_1, options: options }, key));
+                    return;
+                }
             }
             if (cs === c)
                 return; // 这里应该不可能的，child 居然 = parent
@@ -148,12 +150,20 @@ function buildDetailChildren(children) {
     return [each(children), readOnly];
 }
 function Value(_a) {
-    var _b;
-    var name = _a.name;
+    var name = _a.name, options = _a.options;
     var bandContainer = (0, BandContainer_1.useBandContainer)();
     var valueResponse = bandContainer.valueResponse, defaultNone = bandContainer.defaultNone;
     var snapshop = (0, valtio_1.useSnapshot)(valueResponse.values);
-    return (0, jsx_runtime_1.jsx)("div", __assign({ className: 'py-2' }, { children: (_b = snapshop[name]) !== null && _b !== void 0 ? _b : defaultNone }), void 0);
+    var val = snapshop[name];
+    if (options) {
+        if (val) {
+            var option = options.find(function (v) { return v.value === val; });
+            if (option) {
+                val = option.label;
+            }
+        }
+    }
+    return (0, jsx_runtime_1.jsx)("div", __assign({ className: 'py-2' }, { children: val !== null && val !== void 0 ? val : defaultNone }), void 0);
 }
 function Band(props) {
     var label = props.label, children = props.children, BandTemplate = props.BandTemplate, sep = props.sep, contentType = props.contentType, onEdit = props.onEdit, rightIcon = props.rightIcon, contentContainerClassName = props.contentContainerClassName;

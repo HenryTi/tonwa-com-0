@@ -1,6 +1,6 @@
 {
     "name": "tonwa-com",
-    "version": "0.1.6",
+    "version": "1.0.0",
     "description": "ui components",
     "private": false,
     "main": "dist/index.js",
@@ -24,12 +24,12 @@
         "@types/node-fetch": "^2.1.2",
         "@types/react": "^18.0.5",
         "@types/react-dom": "^18.0.1",
-        "bootstrap": "^5.0.2",
+        "bootstrap": "^5.2.0",
         "font-awesome": "^4.7.0",
-        "react": "^18.0.0",
-        "react-dom": "^18.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-router-dom": "^6.3.0",
         "typescript": "^4.0.0",
-        "valtio": "^1.5.2"
+        "valtio": "^1.6.3"
     }
 }

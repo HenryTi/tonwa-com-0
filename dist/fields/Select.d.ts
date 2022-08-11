@@ -1,12 +1,9 @@
 /// <reference types="react" />
 import { BandProps } from '../band';
 import { FieldProps } from './field';
-interface SelectItem {
-    label: string;
-    value: string | number | boolean;
-}
+import { OptionItem } from "../defines";
 interface SelectProps extends FieldProps {
-    options: SelectItem[];
+    options: OptionItem[];
     placeholder?: string;
 }
 export declare function Select(props: SelectProps): JSX.Element;

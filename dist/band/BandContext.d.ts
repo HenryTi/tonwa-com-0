@@ -7,12 +7,12 @@ interface NamedError {
 export declare class BandContext {
     readonly container: BandContainerContext<any>;
     readonly errors: NamedError[];
-    readonly memos: string[];
+    readonly memos?: string[];
     readonly fields: {
         [name: string]: boolean;
     };
     readOnly: boolean;
-    constructor(container: BandContainerContext<any>, memos: string[]);
+    constructor(container: BandContainerContext<any>, memos?: string[]);
     setError(name: string, error: string[]): void;
     clearError(name: string): void;
     clearAllErrors(): void;

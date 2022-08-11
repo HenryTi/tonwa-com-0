@@ -8,9 +8,8 @@ export function Error(props: PageProps) {
     let nav = useNav();
     let { appNav } = nav;
     let { errorPosition } = usePageTemplate(props.template);
-    let { response } = appNav;
-    let responseSnapshot = useSnapshot(response);
-    let { error } = responseSnapshot;
+    let response = useSnapshot(appNav.response);
+    let { error } = response;
     if (error === undefined) return null;
     function onShow() {
         alert(error.message);

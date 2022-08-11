@@ -13,12 +13,14 @@ export declare class StackNav<T extends StackItem> {
     readonly data: {
         stack: T[];
     };
+    private stackLen;
     private callStack;
     private pageKeyNO;
     constructor();
     open(page: JSX.Element | (() => Promise<JSX.Element>), onClose?: () => boolean): void;
     protected internalOpen(page: JSX.Element, onClose?: () => boolean): void;
     close(level?: number): void;
+    cease(level?: number): void;
     call<T>(page: JSX.Element | (() => Promise<JSX.Element>)): Promise<T>;
     returnCall<T>(returnValue: T): void;
     confirm(msg: string): Promise<boolean>;

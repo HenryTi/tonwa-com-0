@@ -40,7 +40,7 @@ function LMR(props) {
         cn += ' cursor-pointer ';
     var arr = React.Children.toArray(children);
     var len = arr.length;
-    if (len > 0) {
+    if (len > 1) {
         arr.splice(len - 1, 0, (0, jsx_runtime_1.jsx)("div", { className: "me-auto" }, void 0));
     }
     /*

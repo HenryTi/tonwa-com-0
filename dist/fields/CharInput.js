@@ -40,15 +40,15 @@ function CharInput(props) {
 }
 exports.CharInput = CharInput;
 function CharInputBase(_a) {
-    var _b, _c, _d, _e, _f;
+    var _b, _c, _d, _e;
     var name = _a.name, className = _a.className, readOnly = _a.readOnly, placeholder = _a.placeholder, maxLength = _a.maxLength, rule = _a.rule, isValidKey = _a.isValidKey, initValue = _a.initValue, type = _a.type, disabled = _a.disabled;
     var input = (0, react_1.useRef)();
-    var _g = (0, react_1.useState)(false), hasError = _g[0], setHasError = _g[1];
+    var _f = (0, react_1.useState)(false), hasError = _f[0], setHasError = _f[1];
     var band = (0, band_1.useBand)();
     var bandContainer = (0, band_1.useBandContainer)();
     var props = bandContainer.props, fields = bandContainer.fields, fieldStates = bandContainer.fieldStates;
     var fieldState = (0, valtio_1.useSnapshot)(fieldStates[name]);
-    readOnly = (_d = (_c = (_b = (fieldState === null || fieldState === void 0 ? void 0 : fieldState.readOnly)) !== null && _b !== void 0 ? _b : readOnly) !== null && _c !== void 0 ? _c : props.readOnly) !== null && _d !== void 0 ? _d : false;
+    readOnly = (_c = (_b = readOnly !== null && readOnly !== void 0 ? readOnly : (fieldState === null || fieldState === void 0 ? void 0 : fieldState.readOnly)) !== null && _b !== void 0 ? _b : props.readOnly) !== null && _c !== void 0 ? _c : false;
     (0, react_1.useEffect)(function () {
         var _a;
         if (!band)
@@ -59,7 +59,7 @@ function CharInputBase(_a) {
         fields[name] = new CharFieldItem(name, input.current, (_a = props.values) === null || _a === void 0 ? void 0 : _a[name]);
         Object.assign(fieldStates[name], { readOnly: readOnly, disabled: disabled });
     }, [band, bandContainer, name, fields, disabled, readOnly]);
-    var cn = (_f = (_e = className !== null && className !== void 0 ? className : props.stringClassName) !== null && _e !== void 0 ? _e : bandContainer.defaultStringClassName) !== null && _f !== void 0 ? _f : '';
+    var cn = (_e = (_d = className !== null && className !== void 0 ? className : props.stringClassName) !== null && _d !== void 0 ? _d : bandContainer.defaultStringClassName) !== null && _e !== void 0 ? _e : '';
     if (hasError === true)
         cn += ' is-invalid';
     if (readOnly === true) {

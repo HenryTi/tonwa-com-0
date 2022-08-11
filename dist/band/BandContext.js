@@ -24,11 +24,12 @@ var react_1 = __importStar(require("react"));
 var valtio_1 = require("valtio");
 var BandContext = /** @class */ (function () {
     function BandContext(container, memos) {
+        this.readOnly = false;
         this.container = container;
         this.errors = (0, valtio_1.proxy)([]);
         this.memos = memos;
         this.fields = {};
-        container.bands.push(this);
+        container === null || container === void 0 ? void 0 : container.bands.push(this);
     }
     BandContext.prototype.setError = function (name, error) {
         if (this.fields[name] === true) {

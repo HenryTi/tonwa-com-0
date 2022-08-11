@@ -1,4 +1,4 @@
-import * as React from 'react';
+/// <reference types="react" />
 export interface SearchBoxProps {
     className?: string;
     label?: string;
@@ -12,12 +12,4 @@ export interface SearchBoxProps {
     onFocus?: () => void;
     allowEmptySearch?: boolean;
 }
-export declare class SearchBox extends React.Component<SearchBoxProps> {
-    private input;
-    private button;
-    private key;
-    private onChange;
-    private onSubmit;
-    clear(): void;
-    render(): JSX.Element;
-}
+export declare function SearchBox(props: SearchBoxProps): JSX.Element;

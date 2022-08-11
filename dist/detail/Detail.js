@@ -120,8 +120,8 @@ function DefaultBandTemplate(props) {
     var band = (0, band_1.useBand)();
     var label = props.label, children = props.children, errors = props.errors, memos = props.memos, onEdit = props.onEdit, content = props.content, sep = props.sep, contentType = props.contentType, rightIcon = props.rightIcon;
     var labelContent = contentType === band_1.BandContentType.check ? null : (0, jsx_runtime_1.jsx)("b", { children: label }, void 0);
-    var vLabel = (0, jsx_runtime_1.jsx)("label", __assign({ className: "col-sm-2 col-form-label text-sm-end tonwa-bg-gray-1 border-end align-self-center" }, { children: labelContent }), void 0);
-    var cnContent = 'col-sm-10 d-flex pe-0';
+    var vLabel = (0, jsx_runtime_1.jsx)("label", __assign({ className: "col-sm-2 col-form-label text-sm-end tonwa-bg-gray-1 border-end align-self-center py-3" }, { children: labelContent }), void 0);
+    var cnContent = 'col-sm-10 d-flex pe-0 align-items-center';
     function RightIcon(_a) {
         var icon = _a.icon, onEdit = _a.onEdit;
         return (0, jsx_runtime_1.jsx)("div", __assign({ onClick: onEdit, className: "px-3 align-self-stretch d-flex align-items-center cursor-pointer" }, { children: icon !== null && icon !== void 0 ? icon : (0, jsx_runtime_1.jsx)(coms_1.FA, { name: "pencil", className: "text-info" }, void 0) }), void 0);
@@ -145,7 +145,7 @@ function DefaultBandTemplate(props) {
         };
         rightIcon = (0, jsx_runtime_1.jsx)(RightIcon, { onEdit: onEdit, icon: rightIcon }, void 0);
     }
-    return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(coms_1.Sep, { sep: sep }, void 0), (0, jsx_runtime_1.jsxs)("div", __assign({ className: "row bg-white mx-0" }, { children: [vLabel, (0, jsx_runtime_1.jsxs)("div", __assign({ className: cnContent }, { children: [(0, jsx_runtime_1.jsxs)("div", __assign({ className: "flex-grow-1" }, { children: [children, (0, jsx_runtime_1.jsx)(band_1.BandFieldErrors, { errors: errors }, void 0), (0, jsx_runtime_1.jsx)(band_1.BandMemos, { memos: memos }, void 0)] }), void 0), rightIcon] }), void 0)] }), void 0)] }, void 0);
+    return (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(coms_1.Sep, { sep: sep }, void 0), (0, jsx_runtime_1.jsxs)("div", __assign({ className: "row bg-white mx-0" }, { children: [vLabel, (0, jsx_runtime_1.jsxs)("div", __assign({ className: cnContent }, { children: [(0, jsx_runtime_1.jsxs)("div", __assign({ className: "flex-grow-1" }, { children: [(0, jsx_runtime_1.jsx)("div", { children: children }, void 0), (0, jsx_runtime_1.jsx)(band_1.BandFieldErrors, { errors: errors }, void 0), (0, jsx_runtime_1.jsx)(band_1.BandMemos, { memos: memos }, void 0)] }), void 0), rightIcon] }), void 0)] }), void 0)] }, void 0);
 }
 function ValueEditPage(_a) {
     var content = _a.content, label = _a.label, values = _a.values, onValuesChanged = _a.onValuesChanged;

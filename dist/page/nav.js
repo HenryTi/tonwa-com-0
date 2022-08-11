@@ -89,6 +89,7 @@ var valtio_1 = require("valtio");
 var Page_1 = require("./Page");
 var StackNav = /** @class */ (function () {
     function StackNav() {
+        this.stackLen = 0;
         this.callStack = [];
         this.pageKeyNO = 0;
         this.data = (0, valtio_1.proxy)({
@@ -105,7 +106,7 @@ var StackNav = /** @class */ (function () {
                     return;
                 _this.open((0, jsx_runtime_1.jsx)(Waiting, {}, void 0));
                 isWaiting_1 = true;
-            }, 200);
+            }, 100);
             promise.then(function (pg) { return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     if (isWaiting_1 === true) {
@@ -121,17 +122,24 @@ var StackNav = /** @class */ (function () {
         this.internalOpen(page, onClose);
     };
     StackNav.prototype.internalOpen = function (page, onClose) {
+        this.innerClose();
         var pageItem = {
             key: String(++this.pageKeyNO),
             page: page,
             onClose: onClose,
         };
         this.data.stack.push((0, valtio_1.ref)(pageItem));
+        this.stackLen = this.data.stack.length;
     };
     StackNav.prototype.close = function (level) {
         if (level === void 0) { level = 1; }
-        for (var i = 0; i < level; i++)
-            this.innerClose();
+        this.stackLen -= level;
+        this.innerClose();
+        //for (let i = 0; i < level; i++) this.innerClose();
+    };
+    StackNav.prototype.cease = function (level) {
+        if (level === void 0) { level = 1; }
+        this.stackLen -= level;
     };
     StackNav.prototype.call = function (page) {
         var _this = this;
@@ -146,7 +154,7 @@ var StackNav = /** @class */ (function () {
             console.error('nav.call and nav.returnCall not matched');
             return;
         }
-        this.close();
+        this.cease();
         resolve(returnValue);
     };
     StackNav.prototype.confirm = function (msg) {
@@ -163,13 +171,18 @@ var StackNav = /** @class */ (function () {
         var stack = this.data.stack;
         var len = stack.length;
         if (len === 0) {
-            //this.appNav?.close(this.appPageItem);
+            this.stackLen = 0;
             return;
         }
-        var onClose = stack[len - 1].onClose;
-        if ((onClose === null || onClose === void 0 ? void 0 : onClose()) === false)
-            return;
-        stack.pop();
+        if (this.stackLen < 0)
+            this.stackLen = 0;
+        var stackLen = this.stackLen;
+        for (var i = len - 1; i >= stackLen; i--) {
+            var onClose = stack[i].onClose;
+            if ((onClose === null || onClose === void 0 ? void 0 : onClose()) === false)
+                return;
+            stack.pop();
+        }
     };
     return StackNav;
 }());
@@ -202,7 +215,8 @@ var Nav = /** @class */ (function (_super) {
             this.tabNav.closeTab();
         }
         else {
-            this.appNav.close();
+            //this.appNav.close();
+            this.appNav.cease();
         }
     };
     return Nav;

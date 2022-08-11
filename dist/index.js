@@ -19,4 +19,5 @@ __exportStar(require("./detail"), exports);
 __exportStar(require("./band"), exports);
 __exportStar(require("./data-view"), exports);
 __exportStar(require("./res"), exports);
+__exportStar(require("./defines"), exports);
 //# sourceMappingURL=index.js.map

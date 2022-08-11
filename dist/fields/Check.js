@@ -84,7 +84,7 @@ function Check(props) {
 exports.Check = Check;
 function BandCheck(props) {
     var label = props.label;
-    return (0, jsx_runtime_1.jsx)(band_1.Band, __assign({}, props, { contentType: band_1.BandContentType.check }, { children: (0, jsx_runtime_1.jsx)(Check, __assign({}, props, { label: label }), void 0) }), void 0);
+    return (0, jsx_runtime_1.jsx)(band_1.Band, __assign({}, props, { label: undefined, contentType: band_1.BandContentType.check }, { children: (0, jsx_runtime_1.jsx)(Check, __assign({}, props, { label: label }), void 0) }), void 0);
 }
 exports.BandCheck = BandCheck;
 //# sourceMappingURL=Check.js.map

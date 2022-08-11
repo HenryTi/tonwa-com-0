@@ -12,7 +12,7 @@ export function LMR(props: Props) {
     if (onClick !== undefined) cn += ' cursor-pointer ';
     let arr = React.Children.toArray(children);
     let len = arr.length;
-    if (len > 0) {
+    if (len > 1) {
         arr.splice(len - 1, 0, <div className="me-auto" />);
     }
     /*

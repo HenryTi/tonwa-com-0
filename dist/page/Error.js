@@ -21,9 +21,8 @@ function Error(props) {
     var nav = (0, nav_1.useNav)();
     var appNav = nav.appNav;
     var errorPosition = (0, PageTemplate_1.usePageTemplate)(props.template).errorPosition;
-    var response = appNav.response;
-    var responseSnapshot = (0, valtio_1.useSnapshot)(response);
-    var error = responseSnapshot.error;
+    var response = (0, valtio_1.useSnapshot)(appNav.response);
+    var error = response.error;
     if (error === undefined)
         return null;
     function onShow() {
