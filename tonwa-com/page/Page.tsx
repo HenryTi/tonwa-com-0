@@ -5,7 +5,7 @@ import { PageProps } from "./PageProps";
 import { usePageTemplate } from "./PageTemplate";
 import { useScroll } from "./useScroll";
 import 'font-awesome/css/font-awesome.min.css';
-// import '../css/tonwa.css';
+import '../css/tonwa.css';
 
 // unanthorized page
 export function UPage(props: PageProps) {
